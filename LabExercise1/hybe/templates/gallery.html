@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+  
+{% block title %}Gallery{% endblock title %}
+  
+{% block content %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: black;"">
+  <div class="container-fluid justify-content">
+    <a class="navbar-brand" style="color:#ffff00" href="#">HYBE</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" style="color:#ffff00" href="/display">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:#ffff00" href="/show">List of Artists</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link ms-auto" style="color:#ffff00" href="logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ <div style="margin:auto;">
+        <div class="container-img" style="margin-top:100px">
+          <div class="col-12">  
+            <center><h2 style="font-weight:bold; margin-bottom: 20px;">Artists Photos</h2> </center> 
+            </div> 
+            
+            {% for image in images %} 
+              <img src="{{ image.img.url }}" class="img-gallery">
+            {% endfor %} 
+            </div>  
+    </div>
+{% endblock content %}

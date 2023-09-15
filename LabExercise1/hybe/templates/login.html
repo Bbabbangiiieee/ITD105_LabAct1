@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="post">
+        <h1>Login</h1> {{ msg }}
+        
+        <div class="input">
+            {% csrf_token %}
+            <!-- Username Field -->
+            <div class="input">
+                <input type="text" name="username" id="id_username" placeholder=""required>
+                <label for="{{ form.username.id_for_label }}" class="floating-label">
+                    {{ form.username.label_tag }}</label>
+                    <span class="material-icons">person</span>   
+            </div>
+
+            <!-- Password Field -->
+            <div class="input">
+                <input type="password" name="password" id="id_password" placeholder="" required>
+                <label for="{{ form.password.id_for_label }}" class="floating-label">
+                    {{ form.password.label_tag }}
+                </label>
+                <span class="material-icons">lock</span>
+            </div>
+            <button type="submit" style="margin-top: 50px;">Login</button>
+            <p class=".register-link">No account? <a href=/newuser>Sign up</a></p>
+        </div>
+    </form>
+</div>
+{% endblock %}

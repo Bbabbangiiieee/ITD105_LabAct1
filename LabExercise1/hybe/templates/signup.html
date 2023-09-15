@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+<div class="container">
+  <form method="POST">
+    <h2>Sign up</h2>
+    {% csrf_token %}
+    <!-- Username Field -->
+    <div class="input">
+      <input type="text" name="username" id="id_username" placeholder=""required>
+      <label for="{{ form.username.id_for_label }}" class="floating-label">{{ form.username.label_tag }}</label><br>
+    </div>
+
+    <!-- Password Field -->
+    <div class="input">
+      <input type="password" name="password1" id="id_password1" placeholder="" required>
+      <label for="{{ form.password1.id_for_label }}" class="floating-label">{{ form.password1.label_tag }}</label><br>
+    </div>
+
+    <!-- Confirm Password Field -->
+    <div class="input">
+      <input type="password" name="password2" id="id_password2" placeholder="" required>
+      <label for="{{ form.password2.id_for_label }}" class="floating-label">{{ form.password2.label_tag }}</label><br>
+    </div>
+    {{ field }}
+    {% for error in field.errors %}
+    <p style="color: red">{{ error }}</p>
+    {% endfor %}
+    </p>
+    <button type="submit">Sign up</button>
+    <p class=".register-link">Already have an account? <a href="/">Login</a></p>
+  </form>
+</div>
+{% endblock %}
